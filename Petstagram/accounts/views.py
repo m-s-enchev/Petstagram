@@ -4,11 +4,11 @@ from django.shortcuts import render
 
 
 def register(request):
-    return None
+    return render(request, template_name='accounts/register-page.html')
 
 
 def login(request):
-    return render(request, template_name='accounts/register-page.html')
+    return render(request, template_name='accounts/login-page.html')
 
 
 def show_profile_details(request):
