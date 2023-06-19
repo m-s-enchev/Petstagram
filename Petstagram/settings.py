@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-b34ma21l99qodi$$103uk36bm(82)#lv^&5m$f^1k@^*xfx$6a
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -82,8 +82,13 @@ WSGI_APPLICATION = 'Petstagram.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        "ENGINE": "django.db.backends.postgresql",
+        'NAME': 'petstagram-database',
+        'USER': 'postgres-user', # postgres user
+        'PASSWORD': 'password', # postgres password
+        'HOST': '127.0.0.1', # postgres host
+        'PORT': '5432', # postgres port
+
     }
 }
 
@@ -123,7 +128,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [BASE_DIR / 'Petstagram/static']
+STATICFILES_DIRS = [BASE_DIR / 'static']
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
