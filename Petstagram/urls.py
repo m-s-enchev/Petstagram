@@ -25,4 +25,4 @@ urlpatterns = [
     path('', include('Petstagram.common.urls')),
     path('pets/', include('Petstagram.pets.urls')),
     path('photos/', include('Petstagram.photos.urls')),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_URL)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

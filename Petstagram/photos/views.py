@@ -48,3 +48,9 @@ def photo_edit(request, pk):
     context = {'form': form}
     return render(request, template_name='photos/photo-edit-page.html', context=context)
 
+
+def photo_delete(request, pk):
+    photo = Photo.objects.get(pk=pk)
+    photo.delete()
+    return redirect('homepage')
+
