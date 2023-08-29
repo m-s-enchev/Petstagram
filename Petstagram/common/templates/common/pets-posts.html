@@ -16,9 +16,9 @@
                                 <div class="profile_img">
                                     <div class="image">
                                         {% if photo.user.profile_picture %}
-                                        <img src="{{ photo.user.profile_picture }}" alt="img8">
+                                            <img src="{{ photo.user.profile_picture }}" alt="img8">
                                         {% else %}
-                                        <img src="{% static 'images/person.png' %}" alt="img8">
+                                            <img src="{% static 'images/person.png' %}" alt="img8">
                                         {% endif %}
                                     </div>
                                 </div>
@@ -139,12 +139,6 @@
                     </a>
                     {% endfor %}
 
-                    <!-- Link to Second Tagged Pet Details Page-->
-                    <a href="#">
-                        <p class="message">
-                            <b>Some other fish</b>
-                        </p>
-                    </a>
                     <!-- End Tagged Pets -->
 
                     <!-- Link to Photo Details Page -->
@@ -165,7 +159,7 @@
                         <!-- Start Add Comments Form -->
                         <form method="post" action="{% url 'comment' photo.id %}">
                             {% csrf_token %}
-                            {{ commment_form }}
+                            {{ comment_form }}
                             <button type="submit">Post</button>
                         </form>
                         <!-- End Add Comments Form -->
