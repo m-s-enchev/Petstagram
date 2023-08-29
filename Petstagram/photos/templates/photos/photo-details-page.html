@@ -16,11 +16,11 @@
                     <div class="userDetails">
 
                         <!-- Link to User Profile Details Page-->
-                        <a href="#">
+                        <a href="{% url 'profile-details' photo.user.pk %}">
                             <div class="profilepic">
                                 <div class="profile_img">
                                     <div class="image">
-                                        <img src="{% static 'images/person.png' %}" alt="img8">
+                                        <img src="{{ object.picture }}" alt="img8">
                                     </div>
                                 </div>
                             </div>
@@ -28,11 +28,8 @@
                         <h3>
 
                             <!-- Link to User Profile Details Page -->
-                            <a href="#">
-                                <!-- IF user has first name and last name -->
-                                Diyan Kalaydzhiev
-                                <!-- else -->
-                                <!-- show user username -->
+                            <a href="{% url 'profile-details' photo.user.pk %}">
+                                {{ photo.user.get_user_name }}
                             </a>
                             <br>
 

@@ -165,7 +165,7 @@
                         <!-- Start Add Comments Form -->
                         <form method="post" action="{% url 'comment' photo.id %}">
                             {% csrf_token %}
-                            {{ form.text}}
+                            {{ commment_form }}
                             <button type="submit">Post</button>
                         </form>
                         <!-- End Add Comments Form -->

@@ -8,7 +8,7 @@ class CommentForm(forms.ModelForm):
         model = Comment
         fields = ['text']
         widgets = {
-            'text': forms.NumberInput(attrs={'placeholder': 'Enter a 10 digit number beginning with 0'})
+            'text': forms.Textarea(attrs={'placeholder': 'Add a comment ...'})
         }
 
 
