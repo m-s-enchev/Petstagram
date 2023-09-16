@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
-from django.views.generic import UpdateView, DetailView
+from django.views.generic import UpdateView, DetailView, DeleteView
 
 from Petstagram.accounts.models import PetstagramUser
 from Petstagram.accounts.forms import PetstagramUserCreateForm, LoginForm, PetstagramUserEditForm
@@ -57,8 +57,14 @@ class UserDetailsView(DetailView):
         return context
 
 
-def delete_profile(request):
-    return render(request, template_name='accounts/profile-delete-page.html')
+class UserDeleteView(DeleteView):
+    model = PetstagramUser
+    template_name = 'accounts/profile-delete-page.html'
+    next_page = reverse_lazy('homepage')
+    success_url = reverse_lazy('homepage')
+
+
+
 
 
 
