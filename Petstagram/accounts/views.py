@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
@@ -47,12 +48,19 @@ class UserDetailsView(DetailView):
         total_photos_count = self.object.photo_set.count()
         total_pets_count = self.object.pet_set.count()
         all_of_users_pets = self.object.photo_set.all()
+        photos = self.object.photo_set.all()
+        paginator = Paginator(photos, 2)
+        page_number = self.request.GET.get("page") or 1
+        page_obj = paginator.get_page(page_number)
 
         context.update({
             'total_likes_count': total_likes_count,
             'total_photos_count': total_photos_count,
             'total_pets_count': total_pets_count,
             'all_of_users_pets': all_of_users_pets,
+            'paginator': paginator,
+            'page_number': page_number,
+            'page_obj': page_obj,
         })
         return context
 
